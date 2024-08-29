@@ -1,0 +1,31 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+
+const EXPERIENCE = [
+  {
+    date: "Actualmente",
+    title: "Moregains",
+    company: "Proyecto Actual",
+    description:
+      "Moregains es una app para el seguimiento de gimnasio que usa algoritmos avanzados para mejorar el rendimiento físico. Ofrece recomendaciones personalizadas de entrenamiento y nutrición basadas en los datos del usuario.",
+  },
+  {
+    date: "Mar 2024 - Jun 2024 · 4 mos",
+    title: "Programador Full Stack (Prácticas)",
+    company: "Profile Software Services",
+    location: "Seville, Andalusia, Spain · Remote",
+    description:
+      "Participé en dos proyectos: Grupal: Aplicación para reservas de salas en la empresa. Individual (TFG): Página para una autoescuela con gestión de alumnos, clases, vehículos y profesores.",
+  }
+]
+---
+
+<ol class="relative">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

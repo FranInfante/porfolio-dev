@@ -1,8 +1,68 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Badge from "../components/Badge.astro";
+import Layout from "../layouts/Layout.astro";
+import Socials from "../components/Socials.astro";
+import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
+import GithubIcon from "../components/icons/GithubIcon.astro";
+import MailIcon from "../components/icons/MailIcon.astro";
+import Experience from "../components/Experience.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Briefcase from "../components/icons/Briefcase.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-	</main>
+<Layout
+  title="Porfolio de Fran Infante - Desarrollador Web Full-Stack"
+  description="Considera contratar a Fran para proyectos reales y profesionales"
+>
+  <main>
+    <SectionContainer class="py-44 pb-24">
+      <img
+        class="rounded-full size-[200px]"
+        src="../../public/pfp.png"
+        alt="Fran photo"
+      />
+      <h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-10">
+        Buenas, soy Fran
+        <a
+          href="https://www.linkedin.com/in/franinfante/"
+          target="_blank"
+          class="justify-center"
+          rel="noopener"
+        >
+          <Badge>Disponible para trabajar</Badge>
+        </a>
+      </h1>
+      <h2 class="text-2xl text-wrap">
+        <span>Desarrollador Web Full-Stack</span>. <span
+          class="text-yellow-200/90">De Sevilla, España</span
+        >. <span class="opacity-75 font-semibold"
+          >Graduado en Diseño de Aplicaciones Web</span
+        >.
+      </h2>
+
+      <nav class="flex gap-x-2 mt-6">
+        <Socials href="https://www.linkedin.com/in/franinfante/">
+          <LinkedInIcon class="size-6" />
+          LinkedIn
+        </Socials>
+        <Socials href="https://github.com/FranInfante">
+          <GithubIcon class="size-6" />
+          Github
+        </Socials>
+        <Socials href="fjinfantejob@gmail.com">
+          <MailIcon class="size-6" />
+          fjinfantejob@gmail.com
+        </Socials>
+      </nav>
+    </SectionContainer>
+
+    <SectionContainer id="experiencia" class="mt-10">
+      <h2 class="text-2xl ml-8 font-semibold mb-6 flex gap-x-3 items-center">
+        <Briefcase class="size-8"/>
+        Experiencia laboral
+
+      </h2>
+      <Experience />
+    </SectionContainer>
+  </main>
 </Layout>
