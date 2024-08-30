@@ -64,7 +64,7 @@ const PROJECTS = [
     description:
       "Primer projecto adaptándome a nuevas tecnologías y lenguajes, aplicación destinada a la gestión automatizada de una autoescuela, tratando con usuarios, reserva de clases, vehículos y facilidad en control de datos sin necesidad de entrar al código",
     github: "https://github.com/FranInfante/FranOnWheelsApp",
-    image: "/FranOnWheels.webp",
+    image: "/projects/FranOnWheels.webp",
     tags: [
       TAGS.SpringbootIcon,
       TAGS.Java,
@@ -77,6 +77,24 @@ const PROJECTS = [
       TAGS.JWT,
     ],
   },
+  {
+    title: "FranOnWheels",
+    description:
+      "Primer projecto adaptándome a nuevas tecnologías y lenguajes, aplicación destinada a la gestión automatizada de una autoescuela, tratando con usuarios, reserva de clases, vehículos y facilidad en control de datos sin necesidad de entrar al código",
+    github: "https://github.com/FranInfante/FranOnWheelsApp",
+    image: "/projects/Rooms.webp",
+    tags: [
+      TAGS.SpringbootIcon,
+      TAGS.Java,
+      TAGS.Angular,
+      TAGS.TypeScript,
+      TAGS.HTML,
+      TAGS.CSS,
+      TAGS.Bootstrap,
+      TAGS.Postman,
+      TAGS.JWT,
+    ],
+  }
 ];
 ---
 
@@ -85,7 +103,7 @@ const PROJECTS = [
     PROJECTS.map(({ image, title, description, tags, github }) => (
       <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
         <div class="w-full md:w-1/2">
-          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl">
             <img
               alt="FranOnWheels Screenshot"
               class="object-cover object-top w-full h-auto transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
@@ -127,6 +145,7 @@ const PROJECTS = [
           </div>
         </div>
       </article>
+      
     ))
   }
 </div>
