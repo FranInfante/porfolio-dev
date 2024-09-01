@@ -10,6 +10,8 @@ import SectionContainer from "../components/SectionContainer.astro";
 import Briefcase from "../components/icons/Briefcase.astro";
 import CodeIcon from "../components/icons/CodeIcon.astro";
 import Projects from "../components/Projects.astro";
+import ProfileIcon from "../components/icons/ProfileIcon.astro";
+import About from "../components/About.astro";
 ---
 
 <Layout
@@ -74,6 +76,14 @@ import Projects from "../components/Projects.astro";
         Proyectos
       </h2>
       <Projects />
+    </SectionContainer>
+
+    <SectionContainer id="proyectos" class="mt-10">
+      <h2 class="text-2xl ml-8 font-semibold mb-6 flex gap-x-3 items-center">
+        <ProfileIcon class="size-8" />
+        Sobre mí
+      </h2>
+      <About />
     </SectionContainer>
   </main>
 </Layout>
