@@ -17,7 +17,7 @@
     <a
       href="#aboutme"
       class="nav-link relative block px-2 py-2 transition hover:text-cyan-200 dark:hover:text-green-400"
-      aria-label="sobre-mi">Sobre mí</a
+      aria-label="aboutme">Sobre mí</a
     >
     <a
       href="mailto:danielgrjob@gmail.com"
@@ -29,46 +29,50 @@
 </header>
 
 <script>
-  document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section");
-    const navItems = document.querySelectorAll("header nav a");
-
-    const callback = (entries: any[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navItems.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-green-500");
-            } else {
-              item.classList.remove("text-green-500");
-            }
+    document.addEventListener("DOMContentLoaded", () => {
+  
+      const sections = document.querySelectorAll("section");
+      const navItems = document.querySelectorAll("header nav a");
+  
+      const callback = (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+  
+            navItems.forEach((item) => {
+  
+              if (item.getAttribute("aria-label") === entry.target.id) {
+                item.classList.add("text-green-300");
+              } else {
+                item.classList.remove("text-green-300");
+              }
+            });
+          }
+        });
+      };
+  
+      const observer = new IntersectionObserver(callback, {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.3,
+      });
+  
+      sections.forEach((section) => {
+        observer.observe(section);
+      });
+  
+      document.onvisibilitychange = () => {
+        if (document.visibilityState === "hidden") {
+          observer.disconnect();
+        } else {
+          sections.forEach((section) => {
+            observer.observe(section);
           });
         }
-      });
-    };
-
-    const observer = new IntersectionObserver(callback, {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.3,
+      };
     });
-
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
-
-    // Cleanup function
-    document.onvisibilitychange = () => {
-      if (document.visibilityState === "hidden") {
-        observer.disconnect();
-      } else {
-        sections.forEach((section) => {
-          observer.observe(section);
-        });
-      }
-    };
-  });
-</script>
+  </script>
+  
+  
 
 <style>
   nav {
