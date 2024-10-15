@@ -10,12 +10,36 @@ import BootstrapIcon from "./icons/BootstrapIcon.astro";
 import TypeScriptIcon from "./icons/TypeScriptIcon.astro";
 import PostmanIcon from "./icons/PostmanIcon.astro";
 import JWTIcon from "./icons/JWTIcon.astro";
+import NextIcon from "./icons/NextIcon.astro";
+import TailwindIcon from "./icons/TailwindIcon.astro";
+import MongoIcon from "./icons/MongoIcon.astro";
+import ReactIcon from "./icons/ReactIcon.astro";
 
 const TAGS = {
   SpringbootIcon: {
     name: "Springboot",
     class: "border text-white",
     icon: SpringbootIcon,
+  },
+  NextIcon: {
+    name: "Next",
+    class: "border text-white",
+    icon: NextIcon,
+  },
+  ReactIcon: {
+    name: "React",
+    class: "border text-white",
+    icon: ReactIcon,
+  },
+  MongoIcon: {
+    name: "MongoDB",
+    class: "border text-white",
+    icon: MongoIcon,
+  },
+  TailwindIcon: {
+    name: "Tailwind",
+    class: "border text-white",
+    icon: TailwindIcon,
   },
   Angular: {
     name: "AngularJS",
@@ -60,6 +84,19 @@ const TAGS = {
 };
 const PROJECTS = [
   {
+    title: "Petinder",
+    description:
+      "Plataforma dedicada principalmente a dar visibilidad a las protectoras de animales con el objetivo de aumentar las adopciones, educar a los usuarios sobre la adopción responsable y reducir el abandono. Además, ofrece una amplia variedad de actividades, lugares para visitar y experiencias de viaje, brindando a los usuarios diversas opciones para disfrutar con sus mascotas.",
+    image: "/projects/petinder.webp",
+    tags: [
+      TAGS.NextIcon,
+      TAGS.TypeScript,
+      TAGS.TailwindIcon,
+      TAGS.MongoIcon,
+      TAGS.ReactIcon
+    ],
+  },
+  {
     title: "FranOnWheels",
     description:
       "Primer proyecto adaptándome a nuevas tecnologías y lenguajes, aplicación destinada a la gestión automatizada de una autoescuela, tratando con usuarios, reserva de clases, vehículos y facilidad en control de datos sin necesidad de entrar al código",
@@ -92,7 +129,7 @@ const PROJECTS = [
       TAGS.CSS,
       TAGS.Bootstrap,
       TAGS.Postman,
-      TAGS.JWT,
+      TAGS.JWT
     ],
   },
 ];
