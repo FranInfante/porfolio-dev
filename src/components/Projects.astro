@@ -14,8 +14,20 @@ import NextIcon from "./icons/NextIcon.astro";
 import TailwindIcon from "./icons/TailwindIcon.astro";
 import MongoIcon from "./icons/MongoIcon.astro";
 import ReactIcon from "./icons/ReactIcon.astro";
+import FirebaseIcon from "./icons/FirebaseIcon.astro";
+import JestIcon from "./icons/JestIcon.astro";
 
 const TAGS = {
+  FirebaseIcon: {
+    name: "Firebase",
+    class: "border text-white",
+    icon: FirebaseIcon,
+  },
+  JestIcon: {
+    name: "Jest",
+    class: "border text-white",
+    icon: JestIcon,
+  },
   SpringbootIcon: {
     name: "Springboot",
     class: "border text-white",
@@ -97,6 +109,17 @@ const PROJECTS = [
     ],
   },
   {
+    title: "Stars League Fantasy",
+    description:
+      "Stars League Fantasy es una aplicación de fantasía para entusiastas del fútbol, en la que los usuarios pueden crear equipos virtuales y competir en función de los resultados reales de sus jugadores seleccionados. Mi rol en este proyecto se centró en el desarrollo y mantenimiento del backend, donde realicé pruebas exhaustivas con Jest para asegurar la funcionalidad y consistencia de las características implementadas.",
+    image: "/projects/starsleague.webp",
+    tags: [
+      TAGS.JestIcon,
+      TAGS.TypeScript,
+      TAGS.FirebaseIcon
+    ],
+  },
+  {
     title: "FranOnWheels",
     description:
       "Primer proyecto adaptándome a nuevas tecnologías y lenguajes, aplicación destinada a la gestión automatizada de una autoescuela, tratando con usuarios, reserva de clases, vehículos y facilidad en control de datos sin necesidad de entrar al código",
@@ -115,7 +138,7 @@ const PROJECTS = [
     ],
   },
   {
-    title: "ProfileRooms",
+    title: "Profile Rooms",
     description:
       "Proyecto que llevamos a delante en el equipo de Profile Software Services para permitir a personas ajenas a la empresa reservar salas disponibles, aquí aprendí a gestionar control de versiones dentro de un equipo profesional, afianzando lo ya aprendido y leyendo documentación con aspectos desconocidos de la programación",
     github: "https://github.com/FranInfante/ProfileRooms",
