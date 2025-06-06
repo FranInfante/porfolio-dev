@@ -53,7 +53,12 @@ const EXPERIENCE = [
 <ol class="relative">
   {
     EXPERIENCE.map((experience) => (
-      <li class="">
+      <li
+        id={
+          experience.company === "CodeArts Solutions" ? "codearts" : undefined
+        }
+        class="scroll-mt-32"
+      >
         <ExperienceItem {...experience} />
       </li>
     ))

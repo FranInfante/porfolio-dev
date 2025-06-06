@@ -1,11 +1,11 @@
 ---
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import "@fontsource-variable/onest"
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import "@fontsource-variable/onest";
 
 interface Props {
-	title: string;
-	description: string;
+  title: string;
+  description: string;
 }
 
 const { description, title } = Astro.props;
@@ -13,49 +13,112 @@ const { description, title } = Astro.props;
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={description}/>
-		<meta name="viewport" content="width=device-width" />
-		<meta property="og:image" content="/thumbnail.png">
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<div class="absolute inset-0 -z-10 min-h-screen w-full items-center px-5 py-24"></div>
-		<Header />
-		<slot />
-		<Footer />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <meta property="og:image" content="/thumbnail.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div
+      class="absolute inset-0 -z-10 min-h-screen w-full items-center px-5 py-24"
+    >
+    </div>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
 </html>
 <style is:global>
-	:root {
-	  color-scheme: dark;
-	}
-  
-	html {
-	  font-family: 'Onest', system-ui, sans-serif;
-	  scroll-behavior: smooth;
-	}
-  
-	body {
-		background: radial-gradient(circle at 23% 15%, 
-		#000000 0%,
-		#4b0082 50%,
-		#00008b 100% 
-	  );
-	  display: flex;
-	  flex-direction: column;
-	  justify-content: center;
-	  min-height: 100vh;
-	  margin: 0;
-	  padding: 0;
-	}
-  
-	@media (prefers-reduced-motion: reduce) {
-	  html {
-		scroll-behavior: auto;
-	  }
-	}
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    font-family: "Onest", system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: radial-gradient(
+      circle at 23% 15%,
+      #000000 0%,
+      #4b0082 50%,
+      #00008b 100%
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  .highlightable {
+    transition: all 0.5s ease-in-out;
+  }
+  @keyframes softHighlight {
+    0% {
+      background-color: #fef9c3; /* Tailwind yellow-100 */
+      box-shadow: 0 0 0 3px #fef08a; /* yellow-200 */
+      border-radius: 1rem;
+    }
+    100% {
+      background-color: transparent;
+      box-shadow: none;
+      border-radius: 1rem;
+    }
+  }
+
+  .highlight-effect {
+    animation: softHighlight 1.2s ease-in-out;
+  }
 </style>
+
+<script>
+  function highlightElementById(id: string) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.classList.add("highlightable", "highlight-effect");
+
+      setTimeout(() => {
+        el.classList.remove("highlight-effect");
+      }, 1300);
+    }
+  }
+
+  // Highlight on page load
+  window.addEventListener("load", () => {
+    const hash = window.location.hash;
+    if (hash && hash === "#codearts") {
+      setTimeout(() => {
+        highlightElementById("codearts");
+      }, 500);
+    }
+  });
+
+  // Highlight on anchor click
+  document.addEventListener("click", (e) => {
+    const target = e.target;
+    if (!(target instanceof Element)) return;
+
+    const anchor = target.closest('a[href^="#"]');
+    if (!(anchor instanceof HTMLAnchorElement)) return;
+
+    const id = anchor.getAttribute("href")?.substring(1);
+    if (id) {
+      setTimeout(() => {
+        highlightElementById(id);
+      }, 200);
+    }
+  });
+</script>
