@@ -219,8 +219,9 @@ import LanguageToggle from "./LanguageToggle.astro";
   .mobile-menu {
     position: fixed;
     top: 4.5rem;
-    left: 1rem;
     right: 1rem;
+    left: auto;
+    width: min(260px, calc(100% - 2rem));
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
@@ -247,12 +248,13 @@ import LanguageToggle from "./LanguageToggle.astro";
   .mobile-link {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 0.6rem 0.85rem;
     border-radius: 0.75rem;
     font-size: 0.9rem;
     font-weight: 500;
     color: #e5e7eb;
+    text-align: right;
     text-decoration: none;
     transition:
       background-color 0.18s ease,
