@@ -12,7 +12,7 @@ const { description, title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" data-lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -22,10 +22,19 @@ const { description, title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
-    <div
-      class="absolute inset-0 -z-10 min-h-screen w-full items-center px-5 py-24"
-    >
+  <body class="min-h-screen text-slate-100 antialiased">
+    <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-[#050816] via-[#07011f] to-[#020617] bg-gradient-core" />
+      <div class="absolute inset-0 bg-stars opacity-60" />
+      <div
+        class="absolute -top-32 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-purple-500/35 blur-3xl bg-orbit-1"
+      />
+      <div
+        class="absolute top-1/3 -left-16 h-64 w-64 rounded-full bg-cyan-400/25 blur-3xl bg-orbit-2"
+      />
+      <div
+        class="absolute bottom-0 right-0 h-80 w-80 translate-y-1/3 rounded-full bg-indigo-600/25 blur-3xl bg-orbit-3"
+      />
     </div>
     <Header />
     <slot />
@@ -35,6 +44,7 @@ const { description, title } = Astro.props;
 <style is:global>
   :root {
     color-scheme: dark;
+    --scroll-y: 0px;
   }
 
   html {
@@ -43,18 +53,18 @@ const { description, title } = Astro.props;
   }
 
   body {
-    background: radial-gradient(
-      circle at 23% 15%,
-      #000000 0%,
-      #4b0082 50%,
-      #00008b 100%
-    );
+    background-color: #020617;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     min-height: 100vh;
     margin: 0;
     padding: 0;
+    color: #e5e7eb;
+  }
+
+  ::selection {
+    background-color: rgba(56, 189, 248, 0.25);
+    color: #e5e7eb;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -82,9 +92,74 @@ const { description, title } = Astro.props;
   .highlight-effect {
     animation: softHighlight 1.2s ease-in-out;
   }
+
+  .bg-stars {
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(248, 250, 252, 0.7) 0, rgba(248, 250, 252, 0.7) 1px, transparent 2px),
+      radial-gradient(circle at 80% 30%, rgba(148, 163, 184, 0.6) 0, rgba(148, 163, 184, 0.6) 1px, transparent 2px),
+      radial-gradient(circle at 10% 80%, rgba(129, 140, 248, 0.7) 0, rgba(129, 140, 248, 0.7) 1px, transparent 2px),
+      radial-gradient(circle at 70% 80%, rgba(56, 189, 248, 0.7) 0, rgba(56, 189, 248, 0.7) 1px, transparent 2px);
+    background-size: 260px 260px, 320px 320px, 280px 280px, 360px 360px;
+    background-repeat: repeat;
+    transform: translate3d(0, calc(var(--scroll-y) * -0.12), 0);
+    transition: transform 0.1s linear;
+  }
+
+  .bg-orbit-1 {
+    transform: translate3d(
+      calc(var(--scroll-y) * 0.02),
+      calc(var(--scroll-y) * -0.04),
+      0
+    );
+  }
+
+  .bg-orbit-2 {
+    transform: translate3d(
+      calc(var(--scroll-y) * -0.03),
+      calc(var(--scroll-y) * 0.05),
+      0
+    );
+  }
+
+  .bg-orbit-3 {
+    transform: translate3d(
+      calc(var(--scroll-y) * 0.015),
+      calc(var(--scroll-y) * 0.04),
+      0
+    );
+  }
+
+  .section {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .section.section-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  [data-lang="es"] .i18n-en {
+    display: none;
+  }
+
+  [data-lang="en"] .i18n-es {
+    display: none;
+  }
 </style>
 
 <script>
+  const STORAGE_KEY = "portfolio-lang";
+
+  function applyLanguage(lang: string) {
+    const root = document.documentElement;
+    const value = lang === "en" ? "en" : "es";
+    root.dataset.lang = value;
+    root.lang = value;
+    localStorage.setItem(STORAGE_KEY, value);
+  }
+
   function highlightElementById(id: string) {
     const el = document.getElementById(id);
     if (el) {
@@ -96,17 +171,61 @@ const { description, title } = Astro.props;
     }
   }
 
-  // Highlight on page load
+  // Expose globally so components can call it
+  (window as any).setLanguage = (lang: string) => {
+    applyLanguage(lang);
+  };
+
+  // Initialize language and section reveal when DOM is ready
   window.addEventListener("load", () => {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored === "en" || stored === "es") {
+      applyLanguage(stored);
+    } else {
+      applyLanguage("es");
+    }
+
+    const sections = Array.from(
+      document.querySelectorAll<HTMLElement>(".section")
+    );
+    console.log(
+      "[Layout] Loaded. Stored lang:",
+      stored,
+      "sections:",
+      sections.length
+    );
+
+    const revealOnScroll = () => {
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      sections.forEach((section) => {
+        if (section.classList.contains("section-visible")) return;
+        const rect = section.getBoundingClientRect();
+        if (rect.top < vh * 0.85) {
+          console.log("[Layout] revealOnScroll -> section-visible", section.id);
+          section.classList.add("section-visible");
+        }
+      });
+    };
+
     const hash = window.location.hash;
     if (hash && hash === "#codearts") {
       setTimeout(() => {
         highlightElementById("codearts");
       }, 500);
     }
+
+    const root = document.documentElement;
+    const updateScroll = () => {
+      const y = window.scrollY || window.pageYOffset || 0;
+      root.style.setProperty("--scroll-y", `${y}px`);
+      revealOnScroll();
+    };
+
+    revealOnScroll();
+    window.addEventListener("scroll", updateScroll, { passive: true });
   });
 
-  // Highlight on anchor click
+  // Smooth scroll + highlight on anchor click (uses scroll-margin on sections)
   document.addEventListener("click", (e) => {
     const target = e.target;
     if (!(target instanceof Element)) return;
@@ -114,11 +233,29 @@ const { description, title } = Astro.props;
     const anchor = target.closest('a[href^="#"]');
     if (!(anchor instanceof HTMLAnchorElement)) return;
 
-    const id = anchor.getAttribute("href")?.substring(1);
-    if (id) {
-      setTimeout(() => {
-        highlightElementById(id);
-      }, 200);
+    const href = anchor.getAttribute("href") || "";
+    const id = href.startsWith("#") && href.length > 1 ? href.substring(1) : null;
+    console.log("[Layout] Anchor click", href, "resolved id:", id);
+    if (!id) return;
+
+    const section = document.getElementById(id);
+    console.log("[Layout] Target section for", id, "exists:", !!section);
+    if (!section) return;
+
+    e.preventDefault();
+
+    if (section.classList.contains("section")) {
+      console.log("[Layout] Forcing section-visible for", id);
+      section.classList.add("section-visible");
     }
+
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    setTimeout(() => {
+      highlightElementById(id);
+    }, 260);
   });
 </script>

@@ -97,57 +97,48 @@ const TAGS = {
 const PROJECTS = [
   {
     title: "KeepItUp",
-    description:
+    descriptionEs:
       "KeepItUpApp está orientada a fomentar la competitividad y el compromiso, permitiendo a los usuarios registrar su peso y entrenamientos, ser gestionados por entrenadores y visualizar resultados de forma sencilla.",
+    descriptionEn:
+      "KeepItUpApp is focused on boosting consistency and motivation. Users can log their weight and workouts, be coached by trainers and visualise their progress in a clear way.",
     url: "https://keepitupapp.com",
     image: "/projects/KeepItUp.webp",
-    tags: [
-      TAGS.Angular,
-      TAGS.TypeScript,
-      TAGS.TailwindIcon,
-      TAGS.SpringbootIcon
-    ],
-
-  },{
+    tags: [TAGS.Angular, TAGS.TypeScript, TAGS.TailwindIcon, TAGS.SpringbootIcon],
+  },
+  {
     title: "LouBooking",
-    description:
+    descriptionEs:
       "LouBooking es una plataforma web ligera para gestionar las reservas de un tatuador. Los clientes pueden consultar las jornadas disponibles y enviar solicitudes de cita sin necesidad de registrarse, mientras que el tatuador gestiona todas las peticiones desde un panel de administración protegido, aceptando o rechazando solicitudes y evitando dobles reservas al bloquear automáticamente los huecos confirmados. El proyecto está desarrollado con Angular 20 y TailwindCSS en el frontend, NestJS 11 con PostgreSQL y TypeORM en el backend, y se despliega en un VPS mediante Docker Compose.",
+    descriptionEn:
+      "LouBooking is a lightweight booking platform for tattoo artists. Clients can browse available sessions and request appointments without creating an account, while the artist manages requests from a secure admin panel that prevents double bookings by blocking confirmed time slots. It is built with Angular 20 and TailwindCSS on the frontend, NestJS 11 with PostgreSQL and TypeORM on the backend, and deployed on a VPS using Docker Compose.",
     url: "https://loubooking.com",
     image: "/projects/loubooking.webp",
-    tags: [
-      TAGS.Angular,
-      TAGS.TypeScript,
-      TAGS.TailwindIcon
-    ],
-
-  },{
+    tags: [TAGS.Angular, TAGS.TypeScript, TAGS.TailwindIcon],
+  },
+  {
     title: "Petinder",
-    description:
+    descriptionEs:
       "Plataforma dedicada principalmente a dar visibilidad a las protectoras de animales con el objetivo de aumentar las adopciones, educar a los usuarios sobre la adopción responsable y reducir el abandono. Además, ofrece una amplia variedad de actividades, lugares para visitar y experiencias de viaje, brindando a los usuarios diversas opciones para disfrutar con sus mascotas.",
+    descriptionEn:
+      "Platform focused on giving visibility to animal shelters to increase adoptions, educate users about responsible adoption and reduce abandonment. It also offers activities, places to visit and travel ideas so people can enjoy more plans with their pets.",
     image: "/projects/petinder.webp",
-    tags: [
-      TAGS.NextIcon,
-      TAGS.TypeScript,
-      TAGS.TailwindIcon,
-      TAGS.MongoIcon,
-      TAGS.ReactIcon
-    ],
+    tags: [TAGS.NextIcon, TAGS.TypeScript, TAGS.TailwindIcon, TAGS.MongoIcon, TAGS.ReactIcon],
   },
   {
     title: "Stars League Fantasy",
-    description:
+    descriptionEs:
       "Stars League Fantasy es una aplicación de fantasía para entusiastas del fútbol, en la que los usuarios pueden crear equipos virtuales y competir en función de los resultados reales de sus jugadores seleccionados. Mi rol en este proyecto se centró en el desarrollo y mantenimiento del backend, donde realicé pruebas exhaustivas con Jest para asegurar la funcionalidad y consistencia de las características implementadas.",
+    descriptionEn:
+      "Stars League Fantasy is a fantasy football app where users build virtual teams and compete based on the real‑world performance of their players. My role focused on backend development and maintenance, writing thorough Jest tests to guarantee stability and reliability.",
     image: "/projects/starsleague.webp",
-    tags: [
-      TAGS.JestIcon,
-      TAGS.TypeScript,
-      TAGS.FirebaseIcon
-    ],
+    tags: [TAGS.JestIcon, TAGS.TypeScript, TAGS.FirebaseIcon],
   },
   {
     title: "FranOnWheels",
-    description:
-      "Primer proyecto adaptándome a nuevas tecnologías y lenguajes, aplicación destinada a la gestión automatizada de una autoescuela, tratando con usuarios, reserva de clases, vehículos y facilidad en control de datos sin necesidad de entrar al código",
+    descriptionEs:
+      "Primer proyecto adaptándome a nuevas tecnologías y lenguajes, aplicación destinada a la gestión automatizada de una autoescuela, tratando con usuarios, reserva de clases, vehículos y facilidad en control de datos sin necesidad de entrar al código.",
+    descriptionEn:
+      "My first full project exploring new technologies and languages: a management app for a driving school, handling users, class bookings and vehicles to simplify daily operations without touching the code.",
     github: "https://github.com/FranInfante/FranOnWheelsApp",
     image: "/projects/FranOnWheels.webp",
     tags: [
@@ -164,8 +155,10 @@ const PROJECTS = [
   },
   {
     title: "Profile Rooms",
-    description:
-      "Proyecto que llevamos a delante en el equipo de Profile Software Services para permitir a personas ajenas a la empresa reservar salas disponibles, aquí aprendí a gestionar control de versiones dentro de un equipo profesional, afianzando lo ya aprendido y leyendo documentación con aspectos desconocidos de la programación",
+    descriptionEs:
+      "Proyecto que llevamos a delante en el equipo de Profile Software Services para permitir a personas ajenas a la empresa reservar salas disponibles, aquí aprendí a gestionar control de versiones dentro de un equipo profesional, afianzando lo ya aprendido y leyendo documentación con aspectos desconocidos de la programación.",
+    descriptionEn:
+      "Project developed with the team at Profile Software Services to let external users book available meeting rooms. I learned how to work with version control in a professional environment, consolidating what I already knew and diving into documentation for unfamiliar topics.",
     github: "https://github.com/FranInfante/ProfileRooms",
     image: "/projects/Rooms.webp",
     tags: [
@@ -177,7 +170,7 @@ const PROJECTS = [
       TAGS.CSS,
       TAGS.Bootstrap,
       TAGS.Postman,
-      TAGS.JWT
+      TAGS.JWT,
     ],
   },
 ];
@@ -185,13 +178,13 @@ const PROJECTS = [
 
 <div class="flex flex-col gap-y-16">
   {
-    PROJECTS.map(({ image, title, description, tags, github, url }) => (
+    PROJECTS.map(({ image, title, descriptionEs, descriptionEn, tags, github, url }) => (
       <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
         <div class="w-full md:w-1/2">
-          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform overflow-clip rounded-xl sm:rounded-xl">
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform overflow-clip rounded-xl sm:rounded-xl group-hover:-translate-y-2 group-hover:shadow-[0_24px_60px_rgba(15,23,42,0.9)]">
             <img
               alt="FranOnWheels Screenshot"
-              class="object-cover object-top w-full h-auto transition duration-500 sm:h-full md:scale-110 hover:scale-105"
+              class="object-cover object-top w-full h-auto transition duration-500 sm:h-full md:scale-110 group-hover:scale-105"
               src={image}
             />
           </div>
@@ -216,18 +209,21 @@ const PROJECTS = [
             </ul>
 
             <div class="mt-2 text-white-700 opacity-85 dark:text-gray-400">
-              {description}
+              <p class="i18n-es">{descriptionEs}</p>
+              <p class="i18n-en">{descriptionEn}</p>
             </div>
             <footer class="flex items-center justify-center w-full md:justify-start mt-4 gap-x-4">
               {url && (
                 <LinkButton href={url}>
-                  Ver proyecto
+                  <span class="i18n-es">Ver proyecto</span>
+                  <span class="i18n-en">View project</span>
                 </LinkButton>
               )}
               {github && (
                 <LinkButton href={github}>
                   <GithubIcon class="size-6" />
-                  Código
+                  <span class="i18n-es">Código</span>
+                  <span class="i18n-en">Source</span>
                 </LinkButton>
               )}
             </footer>

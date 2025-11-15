@@ -8,18 +8,40 @@ const currentYear = new Date().getFullYear()
   <div
     class="rounded-lg w-full max-w-screen-xl mx-auto md:flex md:items-center md:justify-between py-4"
   >
-    <span class="text-sm sm:text-center text-white-800/70 dark:text-white-200/70"
-      >© {currentYear}
-      <a href="https://www.linkedin.com/in/franinfante/" target="_blank" class="hover:underline">Francisco José Infante Cano</a>. Todos los derechos reservados
+    <span class="text-sm sm:text-center text-white-800/70 dark:text-white-200/70">
+      <span class="i18n-es">
+        © {currentYear}
+        <a
+          href="https://www.linkedin.com/in/franinfante/"
+          target="_blank"
+          class="hover:underline"
+          >Francisco José Infante Cano</a
+        >. Todos los derechos reservados
+      </span>
+      <span class="i18n-en">
+        © {currentYear}
+        <a
+          href="https://www.linkedin.com/in/franinfante/"
+          target="_blank"
+          class="hover:underline"
+          >Francisco José Infante Cano</a
+        >. All rights reserved
+      </span>
     </span>
     <ul
       class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"
     >
       
       <li>
-        <a id="contacto" href="CV Francisco Jose Infante Cano.pdf" target="_blank" class="hover:underline"
-          >Descargar Currículum</a
+        <a
+          id="contacto"
+          href="CV Francisco Jose Infante Cano.pdf"
+          target="_blank"
+          class="hover:underline"
         >
+          <span class="i18n-es">Descargar Currículum</span>
+          <span class="i18n-en">Download CV</span>
+        </a>
       </li>
     </ul>
   </div>
