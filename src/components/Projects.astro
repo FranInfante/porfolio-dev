@@ -99,12 +99,25 @@ const PROJECTS = [
     title: "KeepItUp",
     description:
       "KeepItUpApp está orientada a fomentar la competitividad y el compromiso, permitiendo a los usuarios registrar su peso y entrenamientos, ser gestionados por entrenadores y visualizar resultados de forma sencilla.",
+    url: "https://keepitupapp.com",
     image: "/projects/KeepItUp.webp",
     tags: [
       TAGS.Angular,
       TAGS.TypeScript,
       TAGS.TailwindIcon,
       TAGS.SpringbootIcon
+    ],
+
+  },{
+    title: "LouBooking",
+    description:
+      "LouBooking es una plataforma web ligera para gestionar las reservas de un tatuador. Los clientes pueden consultar las jornadas disponibles y enviar solicitudes de cita sin necesidad de registrarse, mientras que el tatuador gestiona todas las peticiones desde un panel de administración protegido, aceptando o rechazando solicitudes y evitando dobles reservas al bloquear automáticamente los huecos confirmados. El proyecto está desarrollado con Angular 20 y TailwindCSS en el frontend, NestJS 11 con PostgreSQL y TypeORM en el backend, y se despliega en un VPS mediante Docker Compose.",
+    url: "https://loubooking.com",
+    image: "/projects/loubooking.webp",
+    tags: [
+      TAGS.Angular,
+      TAGS.TypeScript,
+      TAGS.TailwindIcon
     ],
 
   },{
@@ -172,7 +185,7 @@ const PROJECTS = [
 
 <div class="flex flex-col gap-y-16">
   {
-    PROJECTS.map(({ image, title, description, tags, github }) => (
+    PROJECTS.map(({ image, title, description, tags, github, url }) => (
       <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
         <div class="w-full md:w-1/2">
           <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform overflow-clip rounded-xl sm:rounded-xl">
@@ -206,6 +219,11 @@ const PROJECTS = [
               {description}
             </div>
             <footer class="flex items-center justify-center w-full md:justify-start mt-4 gap-x-4">
+              {url && (
+                <LinkButton href={url}>
+                  Ver proyecto
+                </LinkButton>
+              )}
               {github && (
                 <LinkButton href={github}>
                   <GithubIcon class="size-6" />
