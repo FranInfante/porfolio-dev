@@ -16,6 +16,8 @@ import MongoIcon from "./icons/MongoIcon.astro";
 import ReactIcon from "./icons/ReactIcon.astro";
 import FirebaseIcon from "./icons/FirebaseIcon.astro";
 import JestIcon from "./icons/JestIcon.astro";
+import NestIcon from "./icons/NestIcon.astro";
+import PostgresIcon from "./icons/PostgresIcon.astro";
 
 const TAGS = {
   FirebaseIcon: {
@@ -47,6 +49,16 @@ const TAGS = {
     name: "MongoDB",
     class: "border text-white",
     icon: MongoIcon,
+  },
+  NestIcon: {
+    name: "NestJS",
+    class: "border text-white",
+    icon: NestIcon,
+  },
+  PostgresIcon: {
+    name: "PostgreSQL",
+    class: "border text-white",
+    icon: PostgresIcon,
   },
   TailwindIcon: {
     name: "Tailwind",
@@ -96,6 +108,23 @@ const TAGS = {
 };
 const PROJECTS = [
   {
+    title: "Santuario 2025",
+    descriptionEs:
+      "Web para El Santuario Recording Studio con landing, fichas de Estudio A/B/C, servicios y contacto, con experiencia multilenguaje. Frontend en Angular 20 con TailwindCSS y backend NestJS 11 listo para crecer con PostgreSQL y Docker Compose.",
+    descriptionEn:
+      "Website for El Santuario Recording Studio featuring a landing page, Studio A/B/C detail pages, services and contact, with a multilingual experience. Built with Angular 20 + TailwindCSS and a NestJS 11 backend scaffolded for PostgreSQL and Docker Compose.",
+    url: "https://elsantuariorecording.com",
+
+    image: "/projects/santuario2025.webp",
+    tags: [
+      TAGS.Angular,
+      TAGS.TypeScript,
+      TAGS.TailwindIcon,
+      TAGS.NestIcon,
+      TAGS.PostgresIcon,
+    ],
+  },
+  {
     title: "KeepItUp",
     descriptionEs:
       "KeepItUpApp está orientada a fomentar la competitividad y el compromiso, permitiendo a los usuarios registrar su peso y entrenamientos, ser gestionados por entrenadores y visualizar resultados de forma sencilla.",
@@ -103,7 +132,13 @@ const PROJECTS = [
       "KeepItUpApp is focused on boosting consistency and motivation. Users can log their weight and workouts, be coached by trainers and visualise their progress in a clear way.",
     url: "https://keepitupapp.com",
     image: "/projects/KeepItUp.webp",
-    tags: [TAGS.Angular, TAGS.TypeScript, TAGS.TailwindIcon, TAGS.SpringbootIcon],
+    tags: [
+      TAGS.Angular,
+      TAGS.TypeScript,
+      TAGS.TailwindIcon,
+      TAGS.SpringbootIcon,
+      TAGS.PostgresIcon,
+    ],
   },
   {
     title: "LouBooking",
@@ -113,7 +148,13 @@ const PROJECTS = [
       "LouBooking is a lightweight booking platform for tattoo artists. Clients can browse available sessions and request appointments without creating an account, while the artist manages requests from a secure admin panel that prevents double bookings by blocking confirmed time slots. It is built with Angular 20 and TailwindCSS on the frontend, NestJS 11 with PostgreSQL and TypeORM on the backend, and deployed on a VPS using Docker Compose.",
     url: "https://loubooking.com",
     image: "/projects/loubooking.webp",
-    tags: [TAGS.Angular, TAGS.TypeScript, TAGS.TailwindIcon],
+    tags: [
+      TAGS.Angular,
+      TAGS.TypeScript,
+      TAGS.TailwindIcon,
+      TAGS.NestIcon,
+      TAGS.PostgresIcon,
+    ],
   },
   {
     title: "Petinder",
@@ -122,7 +163,13 @@ const PROJECTS = [
     descriptionEn:
       "Platform focused on giving visibility to animal shelters to increase adoptions, educate users about responsible adoption and reduce abandonment. It also offers activities, places to visit and travel ideas so people can enjoy more plans with their pets.",
     image: "/projects/petinder.webp",
-    tags: [TAGS.NextIcon, TAGS.TypeScript, TAGS.TailwindIcon, TAGS.MongoIcon, TAGS.ReactIcon],
+    tags: [
+      TAGS.NextIcon,
+      TAGS.TypeScript,
+      TAGS.TailwindIcon,
+      TAGS.MongoIcon,
+      TAGS.ReactIcon,
+    ],
   },
   {
     title: "Stars League Fantasy",
@@ -178,58 +225,60 @@ const PROJECTS = [
 
 <div class="flex flex-col gap-y-16">
   {
-    PROJECTS.map(({ image, title, descriptionEs, descriptionEn, tags, github, url }) => (
-      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-        <div class="w-full md:w-1/2">
-          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform overflow-clip rounded-xl sm:rounded-xl group-hover:-translate-y-2 group-hover:shadow-[0_24px_60px_rgba(15,23,42,0.9)]">
-            <img
-              alt="FranOnWheels Screenshot"
-              class="object-cover object-top w-full h-auto transition duration-500 sm:h-full md:scale-110 group-hover:scale-105"
-              src={image}
-            />
-          </div>
-        </div>
-
-        <div class="w-full md:w-1/2 md:max-w-lg">
-          <h3 class="text-2xl font-bold text-white-800 dark:text-gray-100">
-            {title}
-          </h3>
-          <div class="flex flex-wrap mt-2">
-            <ul class="flex flex-row mb-2 gap-x-2 flex-wrap">
-              {tags.map((tag) => (
-                <li class="pb-2">
-                  <span
-                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
-                  >
-                    <tag.icon class="size-4" />
-                    {tag.name}
-                  </span>
-                </li>
-              ))}
-            </ul>
-
-            <div class="mt-2 text-white-700 opacity-85 dark:text-gray-400">
-              <p class="i18n-es">{descriptionEs}</p>
-              <p class="i18n-en">{descriptionEn}</p>
+    PROJECTS.map(
+      ({ image, title, descriptionEs, descriptionEn, tags, github, url }) => (
+        <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+          <div class="w-full md:w-1/2">
+            <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform overflow-clip rounded-xl sm:rounded-xl group-hover:-translate-y-2 group-hover:shadow-[0_24px_60px_rgba(15,23,42,0.9)]">
+              <img
+                alt="FranOnWheels Screenshot"
+                class="object-cover object-top w-full h-auto transition duration-500 sm:h-full md:scale-110 group-hover:scale-105"
+                src={image}
+              />
             </div>
-            <footer class="flex items-center justify-center w-full md:justify-start mt-4 gap-x-4">
-              {url && (
-                <LinkButton href={url}>
-                  <span class="i18n-es">Ver proyecto</span>
-                  <span class="i18n-en">View project</span>
-                </LinkButton>
-              )}
-              {github && (
-                <LinkButton href={github}>
-                  <GithubIcon class="size-6" />
-                  <span class="i18n-es">Código</span>
-                  <span class="i18n-en">Source</span>
-                </LinkButton>
-              )}
-            </footer>
           </div>
-        </div>
-      </article>
-    ))
+
+          <div class="w-full md:w-1/2 md:max-w-lg">
+            <h3 class="text-2xl font-bold text-white-800 dark:text-gray-100">
+              {title}
+            </h3>
+            <div class="flex flex-wrap mt-2">
+              <ul class="flex flex-row mb-2 gap-x-2 flex-wrap">
+                {tags.map((tag) => (
+                  <li class="pb-2">
+                    <span
+                      class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                    >
+                      <tag.icon class="size-4" />
+                      {tag.name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <div class="mt-2 text-white-700 opacity-85 dark:text-gray-400">
+                <p class="i18n-es">{descriptionEs}</p>
+                <p class="i18n-en">{descriptionEn}</p>
+              </div>
+              <footer class="flex items-center justify-center w-full md:justify-start mt-4 gap-x-4">
+                {url && (
+                  <LinkButton href={url}>
+                    <span class="i18n-es">Ver proyecto</span>
+                    <span class="i18n-en">View project</span>
+                  </LinkButton>
+                )}
+                {github && (
+                  <LinkButton href={github}>
+                    <GithubIcon class="size-6" />
+                    <span class="i18n-es">Código</span>
+                    <span class="i18n-en">Source</span>
+                  </LinkButton>
+                )}
+              </footer>
+            </div>
+          </div>
+        </article>
+      )
+    )
   }
 </div>
