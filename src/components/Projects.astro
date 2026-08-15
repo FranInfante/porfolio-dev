@@ -31,7 +31,7 @@ const TAGS = {
     icon: JestIcon,
   },
   SpringbootIcon: {
-    name: "Springboot",
+    name: "Spring Boot",
     class: "border text-white",
     icon: SpringbootIcon,
   },
@@ -66,7 +66,7 @@ const TAGS = {
     icon: TailwindIcon,
   },
   Angular: {
-    name: "AngularJS",
+    name: "Angular",
     class: "border text-white",
     icon: AngularIcon,
   },
@@ -108,6 +108,23 @@ const TAGS = {
 };
 const PROJECTS = [
   {
+    title: "RepsDown",
+    descriptionEs:
+      "Plataforma de entrenamiento que fundé y sigo operando yo solo, disponible en web, App Store y Google Play. Cliente web en Angular 21, app móvil en React Native, API en Spring Boot 3.4 sobre Java 21 y PostgreSQL 17, con Docker y GitHub Actions ejecutando 137 tests y desplegando a staging en cada push. Su asistente de IA usa respuestas de esquema forzado, fallback a un modelo más ligero con backoff exponencial y validación en base de datos de cada ID que devuelve el modelo, para que no pueda inventarse un registro.",
+    descriptionEn:
+      "Training platform I founded and still run on my own, live on the web, the App Store and Google Play. Angular 21 web client, React Native mobile app, a Spring Boot 3.4 API on Java 21 and PostgreSQL 17, with Docker and GitHub Actions running 137 tests and deploying to staging on every push. Its AI assistant uses schema-constrained responses, fallback to a lighter model with exponential backoff, and database validation of every model-returned ID so it cannot invent a record.",
+    url: "https://repsdown.com",
+    image: "/projects/repsdown.webp",
+    tags: [
+      TAGS.Angular,
+      TAGS.ReactIcon,
+      TAGS.TypeScript,
+      TAGS.Java,
+      TAGS.SpringbootIcon,
+      TAGS.PostgresIcon,
+    ],
+  },
+  {
     title: "Santuario 2025",
     descriptionEs:
       "Web para El Santuario Recording Studio con landing, fichas de Estudio A/B/C, servicios y contacto, con experiencia multilenguaje. Frontend en Angular 20 con TailwindCSS y backend NestJS 11 listo para crecer con PostgreSQL y Docker Compose.",
@@ -121,22 +138,6 @@ const PROJECTS = [
       TAGS.TypeScript,
       TAGS.TailwindIcon,
       TAGS.NestIcon,
-      TAGS.PostgresIcon,
-    ],
-  },
-  {
-    title: "KeepItUp",
-    descriptionEs:
-      "KeepItUpApp está orientada a fomentar la competitividad y el compromiso, permitiendo a los usuarios registrar su peso y entrenamientos, ser gestionados por entrenadores y visualizar resultados de forma sencilla.",
-    descriptionEn:
-      "KeepItUpApp is focused on boosting consistency and motivation. Users can log their weight and workouts, be coached by trainers and visualise their progress in a clear way.",
-    url: "https://keepitupapp.com",
-    image: "/projects/KeepItUp.webp",
-    tags: [
-      TAGS.Angular,
-      TAGS.TypeScript,
-      TAGS.TailwindIcon,
-      TAGS.SpringbootIcon,
       TAGS.PostgresIcon,
     ],
   },
@@ -229,9 +230,9 @@ const PROJECTS = [
       ({ image, title, descriptionEs, descriptionEn, tags, github, url }) => (
         <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
           <div class="w-full md:w-1/2">
-            <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform overflow-clip rounded-xl sm:rounded-xl group-hover:-translate-y-2 group-hover:shadow-[0_24px_60px_rgba(15,23,42,0.9)]">
+            <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform overflow-clip rounded-xl sm:rounded-xl group-hover:-translate-y-2">
               <img
-                alt="FranOnWheels Screenshot"
+                alt={`${title} screenshot`}
                 class="object-cover object-top w-full h-auto transition duration-500 sm:h-full md:scale-110 group-hover:scale-105"
                 src={image}
               />

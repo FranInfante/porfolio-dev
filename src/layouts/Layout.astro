@@ -9,6 +9,45 @@ interface Props {
 }
 
 const { description, title } = Astro.props;
+
+const site = Astro.site?.toString().replace(/\/$/, "") ?? "";
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).toString();
+const ogImage = `${site}/thumbnail.png`;
+
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Francisco José Infante Cano",
+  alternateName: "Fran Infante",
+  jobTitle: "Full-Stack Software Engineer",
+  description,
+  url: site,
+  image: `${site}/pfp.png`,
+  email: "mailto:fjinfantejob@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Seville",
+    addressCountry: "ES",
+  },
+  knowsLanguage: ["es", "en"],
+  sameAs: [
+    "https://www.linkedin.com/in/franinfante/",
+    "https://github.com/FranInfante",
+    "https://repsdown.com",
+  ],
+  knowsAbout: [
+    "Java",
+    "Spring Boot",
+    "TypeScript",
+    "Angular",
+    "React Native",
+    "PostgreSQL",
+    "Docker",
+    "REST APIs",
+    "CI/CD",
+    "Large Language Models",
+  ],
+};
 ---
 
 <!doctype html>
@@ -17,10 +56,26 @@ const { description, title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <meta property="og:image" content="/thumbnail.png" />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Fran Infante" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale:alternate" content="en_GB" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(person)} />
   </head>
   <body class="min-h-screen text-slate-100 antialiased">
     <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
