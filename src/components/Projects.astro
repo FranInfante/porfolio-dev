@@ -125,7 +125,63 @@ const PROJECTS = [
     ],
   },
   {
-    title: "Santuario 2025",
+    title: "CRS Real Estate",
+    descriptionEs:
+      "Web para una consultora inmobiliaria de Miami: fichas de propiedades con galerías, sección internacional, formularios y un panel con la gráfica de visitas y el embudo de los envíos por correo. Frontend en Angular 20 y API en NestJS con PostgreSQL, todo en Docker Compose con entornos de preproducción y producción.",
+    descriptionEn:
+      "Website for a Miami real estate consultancy: property listings with galleries, an international section, lead forms and a dashboard with a visits chart and an email campaign funnel. Angular 20 frontend and a NestJS API on PostgreSQL, all in Docker Compose with pre-production and production environments.",
+    url: "https://crsreconsultants.com",
+    image: "/projects/crsre.webp",
+    tags: [TAGS.Angular, TAGS.TypeScript, TAGS.NestIcon, TAGS.PostgresIcon],
+  },
+  {
+    title: "Bolas: El Juego",
+    descriptionEs:
+      "Juego cooperativo de gestión al estilo Overcooked ambientado en Heladerías Bolas (Sevilla). De 1 a 4 jugadores en local con mando o teclado, o en línea entre navegadores. Escena 3D en Three.js con Vite y TypeScript, multijugador P2P con PeerJS y una pequeña API para perfiles y salas.",
+    descriptionEn:
+      "Overcooked-style co-op management game set in Heladerías Bolas, an ice cream shop in Seville. 1 to 4 players locally with gamepad or keyboard, or online between browsers. 3D scene in Three.js with Vite and TypeScript, peer-to-peer multiplayer with PeerJS and a small API for profiles and rooms.",
+    image: "/projects/bolas-game.webp",
+    tags: [TAGS.TypeScript, TAGS.HTML, TAGS.CSS],
+  },
+  {
+    title: "Bóveda",
+    descriptionEs:
+      "Gestor de contraseñas propio para no depender de uno de terceros. Todo se cifra en el navegador (AES-GCM 256, PBKDF2 con 600.000 iteraciones) y el servidor solo guarda texto cifrado en Redis; detecta guardados simultáneos desde dos dispositivos para no pisar datos y conserva la versión anterior. Desbloqueo con Face ID por WebAuthn PRF sin guardar la contraseña maestra, contraseñas que se copian sin mostrarse y se borran del portapapeles a los 30 s, y un asistente de IA al que nunca le llegan las contraseñas. Además guarda documentos y abre el garaje desde Siri.",
+    descriptionEn:
+      "My own password manager, so I don't depend on a third-party one. Everything is encrypted in the browser (AES-GCM 256, PBKDF2 with 600,000 iterations) and the server only stores ciphertext in Redis; it detects simultaneous saves from two devices so no data is overwritten, and keeps the previous version. Face ID unlock via WebAuthn PRF without storing the master password, passwords copied without being shown and cleared from the clipboard after 30 s, and an AI assistant that never sees a password. It also stores documents and opens the garage from Siri.",
+    image: "/projects/boveda.webp",
+    tags: [TAGS.HTML, TAGS.CSS],
+  },
+  {
+    title: "La Bambina",
+    descriptionEs:
+      "Web y carta digital por QR de la Birrería La Bambina (Sevilla), hecha sobre tuBarApp, un SaaS de cartas QR para bares: cada local tiene su marca, su carta y su galería. Angular 21, NestJS 11 y PostgreSQL con Docker Compose.",
+    descriptionEn:
+      "Website and QR menu for Birrería La Bambina in Seville, built on tuBarApp, a QR menu SaaS for bars: each venue gets its own branding, menu and gallery. Angular 21, NestJS 11 and PostgreSQL with Docker Compose.",
+    url: "https://birrerialabambina.com",
+    image: "/projects/labambina.webp",
+    tags: [TAGS.Angular, TAGS.TypeScript, TAGS.NestIcon, TAGS.PostgresIcon],
+  },
+  {
+    title: "Tricount RepsDown",
+    descriptionEs:
+      "Facturación y contabilidad para que una pequeña empresa o un autónomo lleve facturas, gastos, IVA y calendario fiscal sin gestoría. Las facturas cumplen VERI*FACTU (huella encadenada, XML, QR y envío a la AEAT con certificado, con reintentos). Lee el banco por PSD2 y concilia solo cada movimiento con su factura o gasto; una foto de un tique se convierte en un gasto rellenado por IA y archivado en Drive; y avisa de cada obligación fiscal antes de que venza. Cada cobro se reparte automáticamente entre las cajas de los socios. PHP 8.2 y MySQL, con API firmada con HMAC y servidor MCP para que otras apps y agentes emitan facturas.",
+    descriptionEn:
+      "Invoicing and bookkeeping so a small business or freelancer can handle invoices, expenses, VAT and the tax calendar without an accountant. Invoices comply with Spain's VERI*FACTU (chained hash, XML, QR and submission to the tax agency with a client certificate, with retries). It reads the bank through PSD2 and reconciles each transaction with its invoice or expense on its own; a photo of a receipt becomes an AI-filled expense filed in Drive; and it warns about every tax deadline before it's due. Each payment is split automatically between the partners' accounts. PHP 8.2 and MySQL, with an HMAC-signed API and an MCP server so other apps and agents can issue invoices.",
+    image: "/projects/tricount.webp",
+    tags: [],
+  },
+  {
+    title: "Fichaje",
+    descriptionEs:
+      "Tenía que fichar en Woffu cuatro veces al día; ahora lo hace una rutina por mí. Ficha según mi horario y el modo de cada día (casa, oficina o cliente), cuadra la jornada de 8 horas ajustando la vuelta de comer y deja cada fichaje o fallo en avisos. La PWA, en JavaScript sin framework, enseña el estado del día, la semana y los próximos cambios, y un chat con Claude entiende frases como «el lunes no ficho» y propone el cambio. Un Cloudflare Worker guarda el token de Woffu y los datos viven como JSON versionado con control de concurrencia.",
+    descriptionEn:
+      "I had to clock in on Woffu four times a day; now a routine does it for me. It clocks in following my schedule and each day's mode (home, office or client), balances the 8-hour day by adjusting the lunch return, and logs every clock-in or failure as an alert. The PWA, in plain JavaScript, shows today's status, the week and upcoming changes, and a Claude-powered chat understands sentences like \"I'm off on Monday\" and proposes the change. A Cloudflare Worker holds the Woffu token and the data lives as versioned JSON with concurrency control.",
+    image: "/projects/fichaje.webp",
+    tags: [TAGS.HTML, TAGS.CSS],
+  },
+  {
+    title: "Santuario",
     descriptionEs:
       "Web para El Santuario Recording Studio con landing, fichas de Estudio A/B/C, servicios y contacto, con experiencia multilenguaje. Frontend en Angular 20 con TailwindCSS y backend NestJS 11 listo para crecer con PostgreSQL y Docker Compose.",
     descriptionEn:
