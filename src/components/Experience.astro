@@ -1,7 +1,17 @@
 ---
-import ExperienceItem from "./ExperienceItem.astro";
-
-const EXPERIENCE = [
+const NOW = [
+  {
+    dateEs: "Oct 2024 - Presente",
+    dateEn: "Oct 2024 – Present",
+    titleEs: "Fundador · Soluciones digitales para empresas",
+    titleEn: "Founder · Digital solutions for businesses",
+    company: "RepsDown S.L.",
+    descriptionEs:
+      "Mi sociedad para proyectos de clientes. Hago webs, apps móviles, automatizaciones e IA para negocios de inmobiliaria, hostelería, eventos y servicios: desde la primera reunión hasta tenerlo funcionando y mantenerlo. Producto propio: RepsDown, una app de entrenamiento en App Store y Google Play con un asistente de IA que trabaja sobre datos reales.",
+    descriptionEn:
+      "My company for client projects. I build websites, mobile apps, automations and AI for real estate, hospitality, events and service businesses: from the first meeting to having it live and maintained. Own product: RepsDown, a training app on the App Store and Google Play with an AI assistant that works on real data.",
+    link: "https://repsdown.com",
+  },
   {
     dateEs: "Ene 2026 - Presente",
     dateEn: "Jan 2026 – Present",
@@ -9,92 +19,102 @@ const EXPERIENCE = [
     titleEn: "Digital Transformation Consultant | PMO",
     company: "MIGSO-PCUBED",
     descriptionEs:
-      "Desarrollo soluciones tecnológicas junto al equipo de Transformación Digital para áreas clave del negocio como Consultoría y RRHH. También coordino el trabajo de desarrollo: planificación de tareas, priorización del backlog y entrega en plazo bajo metodologías ágiles.",
+      "Creo herramientas internas con el equipo de Transformación Digital para Consultoría y RRHH, y coordino el desarrollo: planificación, prioridades y entregas a tiempo con metodologías ágiles.",
     descriptionEn:
-      "I build technology solutions with the Digital Transformation team for key business areas such as Consulting and HR. I also coordinate development work: task planning, backlog prioritisation and on-time delivery under agile methodologies.",
+      "I build internal tools with the Digital Transformation team for Consulting and HR, and coordinate development: planning, priorities and on-time delivery with agile methods.",
   },
+];
+
+const BEFORE = [
   {
-    dateEs: "Oct 2024 - Presente",
-    dateEn: "Oct 2024 – Present",
-    titleEs: "Fundador & Ingeniero Full-Stack",
-    titleEn: "Founder & Full-Stack Engineer",
-    company: "RepsDown",
-    descriptionEs:
-      "RepsDown es una plataforma de entrenamiento que fundé y sigo operando yo solo. Cliente web en Angular 21, app en React Native, API en Spring Boot 3.4 sobre Java 21 y PostgreSQL 17, con Docker y GitHub Actions ejecutando 137 tests y desplegando a staging en cada push. Incluye un asistente Gemini con respuestas de esquema forzado, fallback a un modelo más ligero con backoff exponencial y validación en base de datos de cada ID que devuelve el modelo. Ya está en la App Store y en Google Play, y tiene su primer entrenador de pago.",
-    descriptionEn:
-      "RepsDown is a training platform I founded and still run on my own. Angular 21 web client, React Native app, a Spring Boot 3.4 API on Java 21 and PostgreSQL 17, with Docker and GitHub Actions running 137 tests and deploying to staging on every push. It ships a Gemini assistant with schema-constrained responses, fallback to a lighter model with exponential backoff, and database validation of every model-returned ID so it cannot invent a record. Live on the App Store and Google Play, with its first paying trainer.",
-    link: "https://repsdown.com",
-  },
-  {
+    id: "codearts",
     dateEs: "Ene 2025 - Ene 2026",
     dateEn: "Jan 2025 – Jan 2026",
-    titleEs: "Programador Full Stack | Project Manager",
-    titleEn: "Full-Stack Developer | Project Manager",
     company: "CodeArts Solutions",
-    descriptionEs:
-      "Desarrollo en proyectos reales de cliente, combinado con la tutorización de desarrolladores en prácticas. Gestión de sprints, organización de tareas y revisión de código.",
-    descriptionEn:
-      "Development on real client projects, combined with mentoring engineers in training. Sprint management, task organisation and code review.",
+    textEs: "Programador full-stack y jefe de proyecto en proyectos de cliente; tutor de desarrolladores en prácticas.",
+    textEn: "Full-stack developer and project manager on client projects; mentor to junior developers.",
   },
   {
     dateEs: "Nov 2024 - Ene 2025",
     dateEn: "Nov 2024 – Jan 2025",
-    titleEs: "BoxFirma",
-    titleEn: "BoxFirma",
     company: "Diseloo Technologies",
-    descriptionEs:
-      "Producto de gestión y emisión de certificados digitales para clientes gestores y administradores de fincas.",
-    descriptionEn:
-      "Product for managing and issuing digital certificates for property managers and administrators.",
+    textEs: "BoxFirma: emisión de certificados digitales para administradores de fincas.",
+    textEn: "BoxFirma: digital certificate issuing for property managers.",
   },
   {
     dateEs: "Sep 2024 - Nov 2024",
     dateEn: "Sep 2024 – Nov 2024",
-    titleEs: "Petinder",
-    titleEn: "Petinder",
-    company: "Proyecto voluntario · Volunteer project",
-    descriptionEs:
-      "Petinder es una plataforma cuya prioridad número uno es dar visibilidad a las protectoras de animales para poder incrementar las adopciones, educar a los usuarios sobre adopción responsable y reducir el abandono proporcionando a los usuarios con una gran variedad de actividades, sitios que visitar, experiencias de viajes y mucho más para mostrar diferentes opciones que uno puede hacer junto a su mejor amigo.",
-    descriptionEn:
-      "Petinder is a platform focused on giving visibility to animal shelters to increase adoptions, educate users about responsible ownership and reduce abandonment, offering activities, places to visit and travel experiences to enjoy with their pets.",
+    company: "Proyectos voluntarios",
+    companyEn: "Volunteer projects",
+    textEs: "Petinder y Stars League Fantasy (están en Proyectos).",
+    textEn: "Petinder and Stars League Fantasy (see Projects).",
   },
   {
-    dateEs: "Sep 2024 - Nov 2024",
-    dateEn: "Sep 2024 – Nov 2024",
-    titleEs: "Stars League Fantasy",
-    titleEn: "Stars League Fantasy",
-    company: "Proyecto voluntario · Volunteer project",
-    descriptionEs:
-      "Stars League Fantasy es una aplicación de fantasía diseñada para entusiastas del fútbol, en la que los usuarios crean y gestionan equipos virtuales basados en jugadores reales. La aplicación premia a los equipos en función de los resultados y el rendimiento de los jugadores en jornadas reales, proporcionando una experiencia interactiva y emocionante que combina estrategia y conocimientos deportivos.",
-    descriptionEn:
-      "Stars League Fantasy is a fantasy football app where users create and manage virtual squads based on real players. Teams score points based on real‑match performance, creating an engaging experience that mixes strategy and football knowledge.",
-  },
-  {
-    dateEs: "Mar 2024 - Jun 2024 · 4 meses",
-    dateEn: "Mar 2024 – Jun 2024 · 4 months",
-    titleEs: "Programador Full Stack (Prácticas)",
-    titleEn: "Full Stack Developer (Internship)",
+    dateEs: "Mar 2024 - Jun 2024",
+    dateEn: "Mar 2024 – Jun 2024",
     company: "Profile Software Services",
-    location: "Seville, Andalusia, Spain · Remote",
-    descriptionEs:
-      "Participé en dos proyectos: Grupal: Aplicación para reservas de salas en la empresa. Individual (TFG): Página para una autoescuela con gestión de alumnos, clases, vehículos y profesores.",
-    descriptionEn:
-      "I took part in two projects: a team project for an internal meeting‑room booking app, and an individual final project for a driving school with student, class, vehicle and teacher management.",
+    textEs: "Prácticas de programador full-stack: reservas de salas y gestión de una autoescuela.",
+    textEn: "Full-stack internship: meeting-room booking and a driving school manager.",
   },
 ];
 ---
 
-<ol class="relative">
-  {
-    EXPERIENCE.map((experience) => (
-      <li
-        id={
-          experience.company === "CodeArts Solutions" ? "codearts" : undefined
-        }
-        class="scroll-mt-32"
-      >
-        <ExperienceItem {...experience} />
-      </li>
-    ))
-  }
-</ol>
+<div class="mx-4 md:mx-8 flex flex-col gap-8">
+  <div>
+    <h3 class="text-sm uppercase tracking-widest text-white/60 font-semibold mb-3">
+      <span class="i18n-es">Ahora</span>
+      <span class="i18n-en">Now</span>
+    </h3>
+    <ul class="grid gap-4 md:grid-cols-2">
+      {
+        NOW.map((e) => (
+          <li class="flex flex-col gap-2 rounded-xl border border-white/10 bg-slate-900/40 p-5 shadow-[0_18px_45px_rgba(15,23,42,0.65)]">
+            <h4 class="text-xl font-bold text-white">{e.company}</h4>
+            <p class="font-semibold text-blue-300">
+              <span class="i18n-es">{e.titleEs}</span>
+              <span class="i18n-en">{e.titleEn}</span>
+            </p>
+            <time class="text-sm text-white/70">
+              <span class="i18n-es">{e.dateEs}</span>
+              <span class="i18n-en">{e.dateEn}</span>
+            </time>
+            <p class="text-white/90 i18n-es">{e.descriptionEs}</p>
+            <p class="text-white/90 i18n-en">{e.descriptionEn}</p>
+            {e.link && (
+              <a href={e.link} target="_blank" rel="noopener" class="text-cyan-300 underline mt-auto">
+                {e.link.replace("https://", "")}
+              </a>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div>
+    <h3 class="text-sm uppercase tracking-widest text-white/60 font-semibold mb-3">
+      <span class="i18n-es">Antes</span>
+      <span class="i18n-en">Before</span>
+    </h3>
+    <ol class="flex flex-col divide-y divide-white/10 rounded-xl border border-white/10 bg-slate-900/30">
+      {
+        BEFORE.map((e) => (
+          <li id={e.id} class="scroll-mt-32 grid gap-1 p-4 md:grid-cols-[180px_1fr] md:gap-4">
+            <time class="text-sm text-white/60">
+              <span class="i18n-es">{e.dateEs}</span>
+              <span class="i18n-en">{e.dateEn}</span>
+            </time>
+            <p>
+              <span class="font-semibold text-white">
+                <span class="i18n-es">{e.company}</span>
+                <span class="i18n-en">{e.companyEn ?? e.company}</span>
+              </span>
+              <span class="text-white/80"> · </span>
+              <span class="text-white/80 i18n-es">{e.textEs}</span>
+              <span class="text-white/80 i18n-en">{e.textEn}</span>
+            </p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</div>

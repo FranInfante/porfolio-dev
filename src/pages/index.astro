@@ -12,67 +12,70 @@ import CodeIcon from "../components/icons/CodeIcon.astro";
 import Projects from "../components/Projects.astro";
 import ProfileIcon from "../components/icons/ProfileIcon.astro";
 import About from "../components/About.astro";
+import Services from "../components/Services.astro";
 ---
 
 <Layout
-  title="Fran Infante · Full-Stack Software Engineer"
-  description="Fran Infante, ingeniero de software full-stack en Sevilla: Java, Spring Boot, TypeScript, Angular, React Native y PostgreSQL. Fundador de RepsDown. Full-stack software engineer working remotely from Seville, Spain."
+  title="Fran Infante · Soluciones digitales: webs, apps, automatizaciones e IA"
+  description="Fran Infante crea soluciones digitales para empresas: webs, apps móviles, automatizaciones e IA, de la idea a producción con su sociedad RepsDown S.L. Ingeniero de software en Sevilla, en remoto. Digital solutions for businesses: websites, mobile apps, automations and AI."
 >
   <main class="px-2">
     <SectionContainer class="py-24 pb-24">
       <img
         class="rounded-full size-[200px] "
         src="/pfp.png"
-        alt="Fran photo"
+        alt="Fran Infante"
       />
-      <h1
-        class="text-white text-3xl md:text-4xl lg:text-5xl font-bold pb-3 flex flex-col lg:flex-row lg:items-center lg:gap-x-4"
-      >
-        <span class="i18n-es">Buenas, soy Fran</span>
-        <span class="i18n-en">Hi, I'm Fran</span>
-        <a
-          href="https://www.linkedin.com/in/franinfante/"
-          target="_blank"
-          class="lg:ml-4 justify-center"
-          rel="noopener"
-        >
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-2 text-white/80 text-lg pb-3">
+        <span class="i18n-es">Fran Infante · Ingeniero de software · Sevilla</span>
+        <span class="i18n-en">Fran Infante · Software engineer · Seville</span>
+        <a href="mailto:fjinfantejob@gmail.com" target="_blank" rel="noopener">
           <Badge>
-            <span class="i18n-es">Disponible para trabajar</span>
-            <span class="i18n-en">Open to opportunities</span>
+            <span class="i18n-es">Disponible para nuevos proyectos</span>
+            <span class="i18n-en">Available for new projects</span>
           </Badge>
         </a>
+      </p>
+      <h1
+        class="text-white text-3xl md:text-4xl lg:text-5xl font-bold pb-4 text-balance max-w-[820px]"
+      >
+        <span class="i18n-es">Creo soluciones digitales: webs, apps móviles, automatizaciones e IA para empresas.</span>
+        <span class="i18n-en">I build digital solutions: websites, mobile apps, automations and AI for businesses.</span>
       </h1>
-      
-      <h2 class="text-2xl text-wrap max-w-[700px]">
+
+      <h2 class="text-xl md:text-2xl text-wrap max-w-[720px] text-white/90">
         <span class="i18n-es">
-          <span>Ingeniero de software full-stack</span>. Java, Spring Boot,
-          TypeScript, Angular, React Native y PostgreSQL. Fundé
-          <a
-            href="https://repsdown.com"
-            target="_blank"
-            rel="noopener"
-            class="text-cyan-300 underline hover:text-cyan-400 transition"
-            >RepsDown</a
-          > y la sigo operando yo solo. <span class="text-yellow-200/90"
-            >En remoto desde Sevilla, España</span
-          >.
+          Escucho el problema de tu negocio y lo convierto en una herramienta que funciona: una web que
+          vende, una app que tus clientes usan o una automatización que te ahorra horas cada semana. Con
+          mi sociedad, <span class="text-cyan-300">RepsDown S.L.</span>, lo diseño, lo construyo y lo mantengo.
         </span>
         <span class="i18n-en">
-          <span>Full-stack software engineer</span>. Java, Spring Boot,
-          TypeScript, Angular, React Native and PostgreSQL. I founded
-          <a
-            href="https://repsdown.com"
-            target="_blank"
-            rel="noopener"
-            class="text-cyan-300 underline hover:text-cyan-400 transition"
-            >RepsDown</a
-          > and still run it on my own. <span class="text-yellow-200/90"
-            >Remote from Seville, Spain</span
-          >.
+          I listen to your business problem and turn it into a tool that works: a website that sells, an
+          app your customers use or an automation that saves you hours every week. With my company,
+          <span class="text-cyan-300">RepsDown S.L.</span>, I design it, build it and keep it running.
         </span>
       </h2>
 
-      <nav class="flex gap-x-4 mt-6 flex-wrap">
+      <div class="flex flex-wrap gap-3 mt-8">
+        <a
+          href="mailto:fjinfantejob@gmail.com"
+          target="_blank"
+          rel="noopener"
+          class="rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 text-slate-900 font-semibold px-5 py-2.5 hover:scale-105 transition"
+        >
+          <span class="i18n-es">Cuéntame tu proyecto</span>
+          <span class="i18n-en">Tell me about your project</span>
+        </a>
+        <a
+          href="#proyectos"
+          class="rounded-full border border-white/20 bg-white/5 text-white font-semibold px-5 py-2.5 hover:bg-white/10 hover:scale-105 transition"
+        >
+          <span class="i18n-es">Ver proyectos</span>
+          <span class="i18n-en">See projects</span>
+        </a>
+      </div>
+
+      <nav class="flex gap-x-4 gap-y-2 mt-6 flex-wrap">
         <Socials href="https://www.linkedin.com/in/franinfante/">
           <LinkedInIcon class="size-4" />
           LinkedIn
@@ -88,13 +91,13 @@ import About from "../components/About.astro";
       </nav>
     </SectionContainer>
 
-    <SectionContainer id="experiencia" class="py-10">
+    <SectionContainer id="servicios" class="py-10">
       <h2 class="text-2xl ml-8 font-semibold mb-6 flex gap-x-3 items-center">
-        <Briefcase class="size-8" />
-        <span class="i18n-es">Experiencia laboral</span>
-        <span class="i18n-en">Work experience</span>
+        <CodeIcon class="size-8" />
+        <span class="i18n-es">Qué hago</span>
+        <span class="i18n-en">What I do</span>
       </h2>
-      <Experience />
+      <Services />
     </SectionContainer>
 
     <SectionContainer id="proyectos" class="py-10">
@@ -104,6 +107,15 @@ import About from "../components/About.astro";
         <span class="i18n-en">Projects</span>
       </h2>
       <Projects />
+    </SectionContainer>
+
+    <SectionContainer id="experiencia" class="py-10">
+      <h2 class="text-2xl ml-8 font-semibold mb-6 flex gap-x-3 items-center">
+        <Briefcase class="size-8" />
+        <span class="i18n-es">Experiencia laboral</span>
+        <span class="i18n-en">Work experience</span>
+      </h2>
+      <Experience />
     </SectionContainer>
 
     <SectionContainer id="aboutme" class="py-10">

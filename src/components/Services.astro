@@ -1,0 +1,57 @@
+---
+const SERVICES = [
+  {
+    titleEs: "Webs",
+    titleEn: "Websites",
+    textEs: "Webs que traen clientes: rápidas, en varios idiomas, con formularios y un panel para ver quién te visita y quién te escribe.",
+    textEn: "Websites that bring in customers: fast, multilingual, with lead forms and a dashboard showing who visits and who gets in touch.",
+    exampleEs: "Ejemplo: la web de una inmobiliaria en Miami.",
+    exampleEn: "Example: the website of a real estate firm in Miami.",
+  },
+  {
+    titleEs: "Apps móviles",
+    titleEn: "Mobile apps",
+    textEs: "Apps para iPhone y Android que tus clientes o tu equipo usan cada día, publicadas en las tiendas y mantenidas después.",
+    textEn: "iPhone and Android apps your customers or team use every day, published on the stores and maintained afterwards.",
+    exampleEs: "Ejemplo: RepsDown, en App Store y Google Play.",
+    exampleEn: "Example: RepsDown, on the App Store and Google Play.",
+  },
+  {
+    titleEs: "Automatizaciones",
+    titleEn: "Automations",
+    textEs: "Lo que hoy haces a mano cada semana, hecho solo: facturas archivadas, banco conciliado, fichajes, avisos e informes.",
+    textEn: "What you do by hand every week, done on its own: invoices filed, bank reconciled, clock-ins, alerts and reports.",
+    exampleEs: "Ejemplo: facturación que concilia el banco sin tocar nada.",
+    exampleEn: "Example: invoicing that reconciles the bank by itself.",
+  },
+  {
+    titleEs: "IA",
+    titleEn: "AI",
+    textEs: "Asistentes que atienden WhatsApp, reservan citas o rellenan gastos desde una foto, conectados a tus datos y sin inventarse nada.",
+    textEn: "Assistants that answer WhatsApp, book appointments or fill in expenses from a photo, connected to your data and never making things up.",
+    exampleEs: "Ejemplo: un asistente que trabaja sobre los datos reales de una app.",
+    exampleEn: "Example: an assistant working on an app's real data.",
+  },
+];
+---
+
+<ul class="grid gap-4 sm:grid-cols-2 mx-4 md:mx-8">
+  {
+    SERVICES.map((s) => (
+      <li class="flex flex-col gap-2 rounded-xl border border-white/10 bg-slate-900/40 p-5 shadow-[0_18px_45px_rgba(15,23,42,0.65)]">
+        <h3 class="text-xl font-bold text-cyan-300">
+          <span class="i18n-es">{s.titleEs}</span>
+          <span class="i18n-en">{s.titleEn}</span>
+        </h3>
+        <p class="text-white/90">
+          <span class="i18n-es">{s.textEs}</span>
+          <span class="i18n-en">{s.textEn}</span>
+        </p>
+        <p class="text-sm text-white/60">
+          <span class="i18n-es">{s.exampleEs}</span>
+          <span class="i18n-en">{s.exampleEn}</span>
+        </p>
+      </li>
+    ))
+  }
+</ul>
