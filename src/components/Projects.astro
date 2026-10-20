@@ -125,6 +125,16 @@ const PROJECTS = [
     ],
   },
   {
+    title: "Centralit.IA y Secretar.IA",
+    descriptionEs:
+      "Apps móviles de Iberika Telecom para pymes: Centralit.IA hace del móvil una extensión más de la centralita y Secretar.IA es una secretaria virtual con la que el dueño habla por chat o por voz. Soy el desarrollador principal de la app: React Native con un módulo nativo en Kotlin para que la llamada suene con la app cerrada (FCM, Core-Telecom y registro SIP), vinculación con un QR del panel, audio WebRTC arreglado con re-INVITE e importación de contactos en lotes. En el servidor construyo los recados, citas y encargos de llamada que la IA gestiona sola.",
+    descriptionEn:
+      "Iberika Telecom's mobile apps for small businesses: Centralit.IA turns a phone into one more PBX extension and Secretar.IA is a virtual secretary the owner talks to by chat or voice. I'm the app's lead developer: React Native with a native Kotlin module so calls ring with the app closed (FCM, Core-Telecom and SIP registration), pairing through a QR code from the dashboard, WebRTC audio fixed with re-INVITE, and batched contact import. On the server I build the messages, appointments and call tasks the AI handles on its own.",
+    image: "/projects/secretaria.webp",
+    imageContain: true,
+    tags: [TAGS.ReactIcon, TAGS.TypeScript],
+  },
+  {
     title: "CRS Real Estate",
     descriptionEs:
       "Web para una consultora inmobiliaria de Miami que convierte visitas en contactos: fichas de propiedades con galerías, sección internacional, formularios y un panel con la gráfica de visitas y el embudo de los envíos por correo. Frontend en Angular 20 y API en NestJS con PostgreSQL, todo en Docker Compose con entornos de preproducción y producción.",
@@ -273,13 +283,15 @@ const PROJECTS = [
 <div class="flex flex-col gap-y-16">
   {
     PROJECTS.map(
-      ({ image, title, descriptionEs, descriptionEn, tags, github, url }) => (
+      ({ image, imageContain, title, descriptionEs, descriptionEn, tags, github, url }) => (
         <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
           <div class="w-full md:w-1/2">
             <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform overflow-clip rounded-xl sm:rounded-xl group-hover:-translate-y-2">
               <img
                 alt={`${title} screenshot`}
-                class="object-cover object-top w-full h-auto transition duration-500 sm:h-full md:scale-110 group-hover:scale-105"
+                class={imageContain
+                  ? "w-full max-h-80 object-contain bg-slate-900 p-10 transition duration-500 group-hover:scale-105"
+                  : "object-cover object-top w-full h-auto transition duration-500 sm:h-full md:scale-110 group-hover:scale-105"}
                 src={image}
               />
             </div>

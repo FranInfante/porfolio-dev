@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Francisco José Infante Cano · CV</title>
+<style>
+  @page { size: A4; margin: 14mm 15mm; }
+  body { font: 9.6pt/1.42 "Segoe UI", Arial, sans-serif; color: #1a1a1a; margin: 0; }
+  h1 { font-size: 20pt; margin: 0; }
+  .role { font-size: 11pt; color: #1d4ed8; font-weight: 600; margin: 2px 0 4px; }
+  .contact { color: #444; margin: 0; }
+  h2 { font-size: 10.5pt; letter-spacing: .12em; color: #1d4ed8; border-bottom: 1px solid #c7d2fe; padding-bottom: 2px; margin: 14px 0 6px; }
+  h3 { font-size: 10.5pt; margin: 8px 0 0; }
+  .meta { color: #555; margin: 0 0 3px; }
+  p { margin: 0 0 5px; }
+  ul { margin: 2px 0 6px; padding-left: 16px; }
+  li { margin-bottom: 2px; }
+  .job { break-inside: avoid; }
+  b { font-weight: 600; }
+</style>
+</head>
+<body>
+<h1>Francisco José Infante Cano</h1>
+<p class="role">Full-Stack Developer · Angular, Spring Boot, React Native, AI-Integrated Products</p>
+<p class="contact">Seville, Spain · fjinfantejob@gmail.com · +34 688 91 47 55<br>linkedin.com/in/franinfante · github.com/FranInfante · repsdown.com</p>
+
+<h2>PROFILE</h2>
+<p>Multidisciplinary software engineer with three years of professional experience, shipping software since early 2024. I run three fronts at once and take on any kind of software project: web, mobile, backend, cloud, telephony or AI.</p>
+<ul>
+  <li><b>MIGSO-PCUBED:</b> technical lead support on an enterprise eDelivery platform on AWS (deployment guidance across DEV, STAGE and PROD, governance framework, disaster recovery plan) and on an HR recruitment app.</li>
+  <li><b>Iberika Telecom:</b> mobile and backend developer on AI-powered cloud phone systems for small businesses: an AI voice agent PBX, a virtual secretary and the mobile app that turns a phone into a company extension.</li>
+  <li><b>RepsDown S.L.:</b> my own company. RepsDown, a fitness-coaching platform live on the App Store and Google Play with a Gemini assistant grounded in each user's data, plus websites, invoicing and automation projects for clients.</li>
+</ul>
+<p>Spanish (native) · English (advanced) · German (basic)</p>
+
+<h2>EXPERIENCE</h2>
+<div class="job">
+<h3>Mobile and Backend Developer</h3>
+<p class="meta">Iberika Telecom · Remote, part-time (20 h/week) · October 2026 to present</p>
+<p>Cloud phone systems with AI for small businesses: Centralit.IA (an AI voice agent that answers calls, books appointments and hands over to a person), Secretar.IA (a virtual secretary the owner talks to by chat or voice), WhatsApp Business with AI replies and CRM integrations. I work across the product: mobile app, platform and team tooling.</p>
+<ul>
+  <li>Lead developer of the React Native mobile app, shipped in two flavours: a softphone that turns the phone into a PBX extension, and a virtual-secretary client the owner talks to by chat or voice.</li>
+  <li>Built incoming calls with the app closed on Android: a native Kotlin module on Core-Telecom woken by FCM data messages, SIP registration of the extension, and a watchdog for when the JS runtime does not start.</li>
+  <li>Built device pairing through a QR code from the web dashboard, and fixed one-way audio when the SIP 200 OK carries no ICE candidates by renegotiating with a re-INVITE.</li>
+  <li>Built the secretary side of the platform: call tasks, messages, appointments booked from the owner's chat outside office hours, and an MCP server that masks personal data before it reaches the model.</li>
+  <li>Redesigned the app with the brand palette, dark mode and accessibility fixes (48 dp touch targets, TalkBack), added batched contact import, and wrote OTA tests that check certificate, URL and channel match before release.</li>
+  <li>Work through issue, branch and merge-request review on GitLab with the CTO.</li>
+</ul>
+</div>
+<div class="job">
+<h3>Software Developer and Technical Lead Support</h3>
+<p class="meta">MIGSO-PCUBED · Seville (hybrid) · January 2026 to present</p>
+<ul>
+  <li>Co-lead the technical workstream on an enterprise eDelivery platform, sharing lead responsibility with one other technical lead across a distributed team.</li>
+  <li>Own AWS deployment guidance for DEV, STAGE and PROD, covering release process and environment parity.</li>
+  <li>Wrote the platform's technical governance framework, covering architecture, security, RACI, scalability and disaster recovery, and presented it to director-level stakeholders.</li>
+  <li>Led production of the Disaster Recovery Plan, coordinating a technical team and reporting to the project manager.</li>
+  <li>Advise external teams on development and deployment practice, and drive incident resolution.</li>
+</ul>
+</div>
+<div class="job">
+<h3>Front-End Developer and Project Manager</h3>
+<p class="meta">CodeArts Solutions · Remote · January 2025 to January 2026</p>
+<ul>
+  <li>Built front-end features on live client software while coordinating delivery for multidisciplinary teams.</li>
+  <li>Ran sprint planning, backlog refinement and delivery control, and presented progress to clients in recurring demos.</li>
+  <li>Mentored developers in training through code review, technical guidance and onboarding documentation.</li>
+</ul>
+</div>
+<div class="job">
+<h3>Earlier Roles, 2024</h3>
+<ul>
+  <li><b>PHP Web Developer</b>, Diseloo Technologies (November 2024 to January 2025). CakePHP feature work and bug fixing with the marketing team.</li>
+  <li><b>Full-Stack Developer</b>, Petinder (September to November 2024, remote). Platform maintenance and new features with the design team.</li>
+  <li><b>Test Engineer</b>, Stars League Fantasy (September to November 2024). Jest suites validating real-time results against live football data.</li>
+  <li><b>Full-Stack Developer</b>, Profile Software Services (March to June 2024, remote). Meeting-room booking app in a seven-developer Kanban team: Java, Spring Boot, PostgreSQL, Angular, Docker.</li>
+</ul>
+</div>
+
+<h2>PROJECTS</h2>
+<div class="job">
+<h3>RepsDown, Founder and Sole Engineer</h3>
+<p class="meta">repsdown.com · 2025 to present · RepsDown S.L.</p>
+<ul>
+  <li>Production platform for personal trainers to manage clients, training cycles, progression and nutrition, live on the web, the App Store and Google Play.</li>
+  <li>Built the whole stack alone: Angular 21, Spring Boot 3.4 on Java 21, React Native on Expo, PostgreSQL 17, all in Docker, with GitHub Actions CI and staging deploys.</li>
+  <li>Integrated the Google Gemini API as an in-app assistant grounded in each user's data, plus about twelve structured-extraction endpoints: voice and photo food logging, nutrition-label OCR, diet plans, weekly insights.</li>
+  <li>Made it survive production: JSON-schema-constrained responses, fallback to a lighter model with exponential backoff, per-user rate limits, response cache, and database validation of every model-returned ID.</li>
+</ul>
+<p>Through RepsDown S.L. I also build websites, apps and automations for clients in real estate, hospitality and services.</p>
+</div>
+
+<h2>TECHNICAL SKILLS</h2>
+<p><b>Languages:</b> Java 21, TypeScript, JavaScript, Kotlin, Python, PHP, SQL, HTML5, CSS3, SCSS<br>
+<b>Front end and mobile:</b> Angular 21, React 19, React Native, Expo, Tailwind, Astro<br>
+<b>Back end:</b> Spring Boot 3.4, NestJS, Node.js, CakePHP, REST API design, MCP servers<br>
+<b>Telephony:</b> SIP, WebRTC, Asterisk, Firebase Cloud Messaging, Android Core-Telecom<br>
+<b>Databases:</b> PostgreSQL 17, MySQL, MariaDB, Redis<br>
+<b>Cloud and DevOps:</b> AWS, Docker, Docker Compose, GitHub Actions, GitLab CI, EAS Build, OTA updates<br>
+<b>AI:</b> Google Gemini API, structured output, multimodal prompts, voice agents, rate limiting, response caching<br>
+<b>Ways of working:</b> Scrum, Kanban, Jira, GitLab merge-request review, technical documentation</p>
+
+<h2>EDUCATION</h2>
+<p><b>Advanced Vocational Degree, Web Application Development (DAW)</b> · Cesur Cartuja, Seville · 2022 to 2024</p>
+<p><b>Advanced Vocational Degree, Microcomputer Systems and Networks</b> · Cesur Cartuja, Seville · 2020 to 2022</p>
+<p>Driving licences B and A2 · Available to travel and relocate</p>
+</body>
+</html>

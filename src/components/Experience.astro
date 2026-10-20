@@ -7,10 +7,35 @@ const NOW = [
     titleEn: "Founder · Digital solutions for businesses",
     company: "RepsDown S.L.",
     descriptionEs:
-      "Mi sociedad para proyectos de clientes. Hago webs, apps móviles, automatizaciones e IA para negocios de inmobiliaria, hostelería, eventos y servicios: desde la primera reunión hasta tenerlo funcionando y mantenerlo. Producto propio: RepsDown, una app de entrenamiento en App Store y Google Play con un asistente de IA que trabaja sobre datos reales.",
+      "Mi sociedad para proyectos de clientes y productos propios: webs, apps móviles, automatizaciones e IA, desde la primera reunión hasta tenerlo funcionando y mantenerlo.",
     descriptionEn:
-      "My company for client projects. I build websites, mobile apps, automations and AI for real estate, hospitality, events and service businesses: from the first meeting to having it live and maintained. Own product: RepsDown, a training app on the App Store and Google Play with an AI assistant that works on real data.",
+      "My company for client projects and my own products: websites, mobile apps, automations and AI, from the first meeting to having it live and maintained.",
     link: "https://repsdown.com",
+    projects: [
+      { name: "RepsDown", es: "App de entrenamiento en App Store y Google Play con un asistente de IA que trabaja sobre los datos reales de cada usuario. Ya tiene su primer entrenador de pago.", en: "Training app on the App Store and Google Play with an AI assistant grounded in each user's real data. It already has its first paying trainer." },
+      { name: "Webs de clientes", es: "Inmobiliaria en Miami, estudio de grabación y reservas de un tatuador: webs que traen contactos y paneles para gestionarlos.", en: "A Miami real estate firm, a recording studio and a tattoo artist's bookings: sites that bring in leads and dashboards to manage them." },
+      { name: "Tricount RepsDown", es: "Facturación VERI*FACTU con banco conciliado solo y calendario fiscal, para que un autónomo no necesite gestoría.", en: "VERI*FACTU invoicing with automatic bank reconciliation and a tax calendar, so a freelancer doesn't need an accountant." },
+      { name: "Bolas: El Juego", es: "Juego cooperativo 3D en el navegador para una heladería de Sevilla, con multijugador en línea.", en: "3D co-op browser game for an ice cream shop in Seville, with online multiplayer." },
+    ],
+  },
+  {
+    dateEs: "Oct 2026 - Presente",
+    dateEn: "Oct 2026 – Present",
+    titleEs: "Desarrollador móvil y backend · Telefonía con IA",
+    titleEn: "Mobile & Backend Developer · AI telephony",
+    company: "Iberika Telecom",
+    descriptionEs:
+      "Centralitas virtuales en la nube con IA para pymes, sin hardware ni permanencia. Trabajo en todo el producto: app móvil, plataforma y herramientas del equipo.",
+    descriptionEn:
+      "Cloud phone systems with AI for small businesses, with no hardware or lock-in. I work across the whole product: mobile app, platform and team tooling.",
+    link: "https://iberikatelecom.es",
+    projects: [
+      { name: "Centralit.IA", es: "Centralita en la nube donde una IA coge las llamadas, da citas y pasa a una persona cuando hace falta, con grabación, transcripción e informes. Sustituye a la recepción y a la centralita física.", en: "Cloud PBX where an AI answers calls, books appointments and hands over to a person when needed, with recording, transcription and reports. It replaces the front desk and the physical PBX." },
+      { name: "Secretar.IA", es: "Secretaria virtual para autónomos y pymes sin recepción: coge llamadas, apunta recados, agenda en Google Calendar y el dueño le habla por chat o por voz.", en: "Virtual secretary for freelancers and small firms with no front desk: it takes calls, logs messages, books into Google Calendar, and the owner talks to it by chat or voice." },
+      { name: "App móvil", es: "La llevo yo: el móvil pasa a ser una extensión más de la empresa, con llamadas aunque la app esté cerrada. Lo que hacen 3CX o Aircall, integrado en la centralita de Iberika.", en: "I lead it: the phone becomes one more company extension, ringing even when the app is closed. What 3CX or Aircall do, built into Iberika's own PBX." },
+      { name: "Agentes de voz y WhatsApp", es: "Demos de agentes de voz por sector y WhatsApp Business con respuestas por IA, conectados a CRMs como Odoo, HubSpot o Salesforce.", en: "Industry voice-agent demos and WhatsApp Business with AI replies, connected to CRMs such as Odoo, HubSpot or Salesforce." },
+      { name: "Herramientas del equipo", es: "Panel central, coordinación de tareas con IA y vigilantes que convierten WhatsApp y correo en tareas.", en: "A central dashboard, AI-assisted task coordination and watchers that turn WhatsApp and email into tasks." },
+    ],
   },
   {
     dateEs: "Ene 2026 - Presente",
@@ -22,6 +47,11 @@ const NOW = [
       "Creo herramientas internas con el equipo de Transformación Digital para Consultoría y RRHH, y coordino el desarrollo: planificación, prioridades y entregas a tiempo con metodologías ágiles.",
     descriptionEn:
       "I build internal tools with the Digital Transformation team for Consulting and HR, and coordinate development: planning, priorities and on-time delivery with agile methods.",
+    projects: [
+      { name: "eDelivery", es: "Tech lead de una plataforma empresarial en AWS con tres entornos: despliegues, coste, seguridad y el plan de recuperación ante desastres.", en: "Tech lead of an enterprise platform on AWS with three environments: deployments, cost, security and the disaster recovery plan." },
+      { name: "App de selección", es: "Herramienta de RRHH para el proceso de reclutamiento: frontend, backend, AWS y seguridad.", en: "HR tool for the recruitment process: frontend, backend, AWS and security." },
+      { name: "Informes automáticos", es: "El informe mensual del proyecto se genera solo a partir de Jira.", en: "The project's monthly report is generated automatically from Jira." },
+    ],
   },
 ];
 
@@ -65,7 +95,7 @@ const BEFORE = [
       <span class="i18n-es">Ahora</span>
       <span class="i18n-en">Now</span>
     </h3>
-    <ul class="grid gap-4 md:grid-cols-2">
+    <ul class="grid gap-4">
       {
         NOW.map((e) => (
           <li class="flex flex-col gap-2 rounded-xl border border-white/10 bg-slate-900/40 p-5 shadow-[0_18px_45px_rgba(15,23,42,0.65)]">
@@ -80,6 +110,16 @@ const BEFORE = [
             </time>
             <p class="text-white/90 i18n-es">{e.descriptionEs}</p>
             <p class="text-white/90 i18n-en">{e.descriptionEn}</p>
+            <ul class="flex flex-col gap-2 border-t border-white/10 pt-3 text-sm">
+              {e.projects.map((p) => (
+                <li>
+                  <span class="font-semibold text-cyan-200">{p.name}</span>
+                  <span class="text-white/80"> · </span>
+                  <span class="text-white/80 i18n-es">{p.es}</span>
+                  <span class="text-white/80 i18n-en">{p.en}</span>
+                </li>
+              ))}
+            </ul>
             {e.link && (
               <a href={e.link} target="_blank" rel="noopener" class="text-cyan-300 underline mt-auto">
                 {e.link.replace("https://", "")}
